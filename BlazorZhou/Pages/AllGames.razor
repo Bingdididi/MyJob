@@ -1,0 +1,59 @@
+@page "/all-games"
+@inject HttpClient Http
+
+<h3>All Games</h3>
+<p>There are @games.Count games in total.</p>
+
+@if (games == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Game ID</th>
+                <th>Year</th>
+                <th>Gender</th>
+                <th>City</th>
+                <th>Country</th>
+                <th>Continent</th>
+                <th>Winner</th>
+            </tr>
+        </thead>
+        <tbody>
+        @foreach (var game in games)
+        {
+            <tr>
+                <td>@game.GameId</td>
+                <td>@game.Year</td>
+                <td>@game.Gender</td>
+                <td>@game.City</td>
+                <td>@game.Country</td>
+                <td>@game.Continent</td>
+                <td>@game.Winner</td>
+            </tr>
+        }
+        </tbody>
+    </table>
+}
+
+@code {
+    private List<Game> games = new List<Game>();  // Initialize as empty list immediately
+
+
+   protected override async Task OnInitializedAsync()
+{
+    try
+    {
+        games = await Http.GetFromJsonAsync<List<Game>>($"{Constants.BaseUrl}/api/games") ?? new List<Game>();
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine("API request failed: " + ex.Message);
+        games = new List<Game>(); // This ensures `games` is never null
+    }
+}
+
+}

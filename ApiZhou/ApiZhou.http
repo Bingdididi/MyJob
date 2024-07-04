@@ -1,0 +1,6 @@
+@ApiZhou_HostAddress = http://localhost:5064
+
+GET {{ApiZhou_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

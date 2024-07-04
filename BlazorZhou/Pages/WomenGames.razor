@@ -1,0 +1,60 @@
+@page "/women-games"
+@inject HttpClient Http
+
+<h3>Women's Games</h3>
+@if (womenGames != null)
+{
+    <p>There are @womenGames.Count women's games.</p>
+}
+
+@if (womenGames == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Game ID</th>
+                <th>Year</th>
+                <th>City</th>
+                <th>Country</th>
+                <th>Continent</th>
+                <th>Winner</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var game in womenGames)
+            {
+                <tr>
+                    <td>@game.GameId</td>
+                    <td>@game.Year</td>
+                    <td>@game.City</td>
+                    <td>@game.Country</td>
+                    <td>@game.Continent</td>
+                    <td>@game.Winner</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private List<Game>? womenGames;
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            var result = await Http.GetFromJsonAsync<List<Game>>($"{Constants.BaseUrl}/api/games/gender/Women");
+            womenGames = result ?? new List<Game>(); // Ensures womenGames is never null
+        }
+        catch (Exception ex)
+        {
+            string errorMessage = string.Empty; // Declare the errorMessage variable
+            errorMessage = $"Error retrieving women's games: {ex.Message}";
+            womenGames = new List<Game>(); // Provides a fallback empty list
+        }
+    }
+}

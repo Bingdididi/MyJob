@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "GJ0hjyDyhvJAdSAagkAvML2DCoeg2qPGfgVkHsIeoLxlsGWprc/QCbljhPEvRCGEkfLig7EpRmmRuOTinY9Osg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\angel\\Document\\term4\\Comp4870_final\\FinalExam4870Zhou\\LibraryZhou\\LibraryZhou.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\angel\\.nuget\\packages\\system.componentmodel.annotations\\5.0.0\\system.componentmodel.annotations.5.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

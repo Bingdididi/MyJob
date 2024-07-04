@@ -1,0 +1,60 @@
+@page "/men-games"
+@inject HttpClient Http
+
+<h3>Men's Games</h3>
+@if (menGames != null)
+{
+    <p>There are @menGames.Count men's games.</p>
+}
+
+@if (menGames == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Game ID</th>
+                <th>Year</th>
+                <th>City</th>
+                <th>Country</th>
+                <th>Continent</th>
+                <th>Winner</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var game in menGames)
+            {
+                <tr>
+                    <td>@game.GameId</td>
+                    <td>@game.Year</td>
+                    <td>@game.City</td>
+                    <td>@game.Country</td>
+                    <td>@game.Continent</td>
+                    <td>@game.Winner</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private List<Game>? menGames;
+
+   protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            var result = await Http.GetFromJsonAsync<List<Game>>($"{Constants.BaseUrl}/api/games/gender/Men");
+            menGames = result ?? new List<Game>(); // If null is returned, initialize an empty list
+        }
+        catch (Exception ex)
+        {
+            string errorMessage = string.Empty;
+            errorMessage = $"Error retrieving men's games: {ex.Message}";
+            menGames = new List<Game>(); // Ensures menGames is never null
+        }
+    }
+}

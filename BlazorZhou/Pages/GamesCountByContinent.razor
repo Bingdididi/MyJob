@@ -1,0 +1,56 @@
+@page "/games-count-by-continent"
+@inject HttpClient Http
+
+<h3>Games Count by Continent</h3>
+<p>Statistics of games by continent.</p>
+
+@if (continentCounts == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Continent</th>
+                <th>Count of Games</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var count in continentCounts)
+            {
+                <tr>
+                    <td>@count.Continent</td>
+                    <td>@count.Count</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private List<ContinentCount>? continentCounts;
+
+   protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            continentCounts = await Http.GetFromJsonAsync<List<ContinentCount>>($"{Constants.BaseUrl}/api/games/count/continent") ?? new List<ContinentCount>();
+            // This ensures `continentCounts` is never null even if the API returns null or fails
+        }
+        catch (Exception ex)
+        {
+            // Log the error message
+            string errorMessage = string.Empty;
+            errorMessage = $"Failed to load continent counts: {ex.Message}";
+            continentCounts = new List<ContinentCount>(); // Prevents null reference issues
+        }
+    }
+
+    public class ContinentCount
+    {
+        public string? Continent { get; set; }
+        public int Count { get; set; }
+    }
+}

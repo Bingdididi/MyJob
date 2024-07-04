@@ -1,0 +1,12 @@
+C:\Users\angel\Document\term4\Comp4870_final\FinalExam4870Zhou\LibraryZhou\bin\Debug\net8.0\LibraryZhou.deps.json
+C:\Users\angel\Document\term4\Comp4870_final\FinalExam4870Zhou\LibraryZhou\bin\Debug\net8.0\LibraryZhou.dll
+C:\Users\angel\Document\term4\Comp4870_final\FinalExam4870Zhou\LibraryZhou\bin\Debug\net8.0\LibraryZhou.pdb
+C:\Users\angel\Document\term4\Comp4870_final\FinalExam4870Zhou\LibraryZhou\obj\Debug\net8.0\LibraryZhou.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\angel\Document\term4\Comp4870_final\FinalExam4870Zhou\LibraryZhou\obj\Debug\net8.0\LibraryZhou.AssemblyInfoInputs.cache
+C:\Users\angel\Document\term4\Comp4870_final\FinalExam4870Zhou\LibraryZhou\obj\Debug\net8.0\LibraryZhou.AssemblyInfo.cs
+C:\Users\angel\Document\term4\Comp4870_final\FinalExam4870Zhou\LibraryZhou\obj\Debug\net8.0\LibraryZhou.csproj.CoreCompileInputs.cache
+C:\Users\angel\Document\term4\Comp4870_final\FinalExam4870Zhou\LibraryZhou\obj\Debug\net8.0\LibraryZhou.sourcelink.json
+C:\Users\angel\Document\term4\Comp4870_final\FinalExam4870Zhou\LibraryZhou\obj\Debug\net8.0\LibraryZhou.dll
+C:\Users\angel\Document\term4\Comp4870_final\FinalExam4870Zhou\LibraryZhou\obj\Debug\net8.0\refint\LibraryZhou.dll
+C:\Users\angel\Document\term4\Comp4870_final\FinalExam4870Zhou\LibraryZhou\obj\Debug\net8.0\LibraryZhou.pdb
+C:\Users\angel\Document\term4\Comp4870_final\FinalExam4870Zhou\LibraryZhou\obj\Debug\net8.0\ref\LibraryZhou.dll
